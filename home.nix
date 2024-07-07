@@ -61,6 +61,8 @@
     # Dev stuff
     _1password
     jq
+    jd-diff-patch
+    jdk
     nodePackages.typescript
     nodejs
     fenix.packages."aarch64-darwin".minimal.toolchain # rust
@@ -76,7 +78,8 @@
 
     # Useful nix related tools
     nixpkgs-fmt
-    nil
+    nixd
+    alejandra
 
     devenv.packages.aarch64-darwin.devenv
     cachix # adding/managing alternative binary caches hosted by Cachix
