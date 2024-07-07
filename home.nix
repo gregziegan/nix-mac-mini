@@ -1,6 +1,11 @@
-{ config, pkgs, lib, devenv, fenix, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  devenv,
+  fenix,
+  ...
+}: {
   home.stateVersion = "22.05";
 
   # https://github.com/malob/nixpkgs/blob/master/home/default.nix
@@ -39,7 +44,7 @@
     '';
 
     plugins = [
-       {
+      {
         name = "powerlevel10k";
         src = pkgs.zsh-powerlevel10k;
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
@@ -52,43 +57,43 @@
     ];
   };
 
-  home.packages = with pkgs; [
-    # Some basics
-    coreutils
-    curl
-    wget
+  home.packages = with pkgs;
+    [
+      # Some basics
+      coreutils
+      curl
+      wget
 
-    # Dev stuff
-    _1password
-    jq
-    jd-diff-patch
-    jdk
-    nodePackages.typescript
-    nodejs
-    fenix.packages."aarch64-darwin".minimal.toolchain # rust
-    git-absorb
-    python311
-    python311Packages.pytest
-    python311Packages.black
-    dhall
-    dhall-lsp-server
-    dhall-json
-    gh
-    zellij
+      # Dev stuff
+      _1password
+      jq
+      jd-diff-patch
+      jdk
+      nodePackages.typescript
+      nodejs
+      fenix.packages."aarch64-darwin".minimal.toolchain # rust
+      git-absorb
+      python311
+      python311Packages.pytest
+      python311Packages.black
+      dhall
+      dhall-lsp-server
+      dhall-json
+      gh
+      zellij
 
-    # Useful nix related tools
-    nixpkgs-fmt
-    nixd
-    alejandra
+      # Useful nix related tools
+      nixpkgs-fmt
+      nixd
+      alejandra
 
-    devenv.packages.aarch64-darwin.devenv
-    cachix # adding/managing alternative binary caches hosted by Cachix
-    # comma # run software from without installing it
-    nodePackages.node2nix
-
-  ] ++ lib.optionals stdenv.isDarwin [
-    cocoapods
-    m-cli # useful macOS CLI commands
-  ];
-
+      devenv.packages.aarch64-darwin.devenv
+      cachix # adding/managing alternative binary caches hosted by Cachix
+      # comma # run software from without installing it
+      nodePackages.node2nix
+    ]
+    ++ lib.optionals stdenv.isDarwin [
+      cocoapods
+      m-cli # useful macOS CLI commands
+    ];
 }
