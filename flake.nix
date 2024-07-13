@@ -60,7 +60,7 @@
         inherit devenv fenix;
       };
 
-      Gregs-Mac-mini = darwinSystem {
+      che = darwinSystem {
         system = "aarch64-darwin";
 
         modules =

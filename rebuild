@@ -1,1 +1,1 @@
-nix build .#darwinConfigurations.Gregs-Mac-mini.system
+nix build .#darwinConfigurations.che.system
